@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<style>
+    * {
+        margin: 0;
+        font-family: sans-serif;
+        
+    }
+
+
+    .navigation {
+        top: 0;
+        background-color: #131b2ae5;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        min-width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .nirdesh {
+        font-family: 'Plutur';
+        font-size: xx-large;
+        margin-left: 60px;
+        background: linear-gradient(to bottom, #f32170, #f97316);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    .home {
+        font-family: 'Plutur';
+        color: #FFFFFF;
+        font-size: x-large;
+        cursor: pointer;
+        margin-right: 60px;
+    }
+
+    .home:hover {
+        text-decoration: underline;
+    }
+
+    .form {
+        border: 5px solid #60a5fa;
+        background-color: #2a313a9a;
+        height: max-content;
+        border-radius: 15px;
+        margin: 70px;
+        margin-top: 130px;
+
+    }
+
+    .top {
+        display: flex;
+        background-color: #4b5563;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        align-items: center;
+        justify-content: space-between;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info {
+        border: 2px solid white;
+        border-radius: 5px;
+        width: 70%;
+        color: #d97706;
+        transition-duration: 0.5s;
+        margin-bottom: 40px;
+
+    }
+
+    .inputs {
+        width: 100%;
+        align-self: center;
+        border-style: none;
+        background-color: #334155;
+        font-size: 1.125rem;
+        font-weight: lighter;
+        line-height: 1.75rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 8px;
+        color: #FFFFFF;
+        outline-style: none;
+    }
+
+    .info:focus-within {
+        border: 2px solid #8b97f9;
+        outline: 2px solid #403cb4;
+        font-size: 15px;
+        color: #c48505;
+    }
+
+    .hidden {
+
+        display: grid;
+        grid-template-rows: max-content max-content;
+        width: 96%;
+        align-self: center;
+        border-style: none;
+        font-size: 0.5px;
+        font-weight: lighter;
+        line-height: 1.75rem;
+        padding-bottom: 0.5rem;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        color: #FFFFFF;
+        outline-style: none;
+        margin-left: 16px;
+        font-size: 0.5px;
+        font-weight: 100;
+        color: transparent;
+    }
+
+    .hidden:focus-within {
+        padding-top: 0.5rem;
+        font-size: 14px;
+        font-weight: 600;
+        transition-duration: 0.5s;
+        color: #aa6a21;
+    }
+
+    video {
+        filter: blur(20px);
+        top:0;
+        margin-left: -8%;
+        position: fixed;
+        min-height: 100%;
+        min-width: 100%;
+        z-index: -100;
+    }
+
+    .QR {
+        float: right;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        margin-top: 10px;
+        margin-right: 14px;
+        margin-bottom: 5px;
+    }
+
+    .QR:hover {
+        transition-duration: 1s;
+        height: 60px;
+        width: 60px;
+    }
+
+    .change {
+        color: #c48505;
+        cursor: pointer;
+    }
+
+    .change:hover {
+        text-decoration: underline;
+    }
+
+    .submit {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 30px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 15px;
+        background: linear-gradient(to right, #f7b733, #fc4a1a);
+        border-style: none;
+        cursor: pointer;
+        color: #FFFFFF;
+    }
+
+    .submit:hover {
+        background: linear-gradient(to right, #fdc34e, #f8643b);
+        transition-duration: 0.5s;
+        padding-left: 130px;
+        padding-right: 130px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-stretch: expanded;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        background-color: #192230e5;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        
+
+    }
+
+    .down_nir {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #FFFFFF;
+        cursor: pointer;
+        margin: 25px;
+    }
+
+    .down_nir:hover {
+        transition-duration: 0.5s;
+        background: linear-gradient(to bottom, #f32170, #f97316);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    .logo {
+        border-radius: 20%;
+        background-color: #4b5563;
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+    }
+
+    .logo:hover {
+        background-color: #FFFFFF;
+        height: 40px;
+        width: 40px;
+        transition-duration: 0.5s;
+
+    }
+</style>
+<html>
+
+<head>
+    <link rel="icon" href="./logo.png">
+    <title> Nirdesh - Registration </title>
+</head>
+
+<body>
+     <video autoplay muted loop>
+        <source src="./background.mp4" type="video/mp4">
+    </video>
+
+    <div class='navigation'>
+        <div class="nirdesh">
+            < NIRDESH>
+        </div>
+        <div class="home">HOME</div>
+    </div>
+
+    <div class="form">
+        <div class="top">
+            <div style="display: flex; margin-left: 15px; justify-content: space-between; width: 80px;">
+                <div style="background-color: #ff4747; height: 16px; width: 16px; border-radius: 50%;"></div>
+                <div style="background-color: #ffcc47; height: 16px; width: 16px; border-radius: 50%;"></div>
+                <div style="background-color: #47ff5a; height: 16px; width: 16px; border-radius: 50%;"></div>
+            </div>
+            <div style="color: #858c99; font-size: 18px; font-weight: 400;">
+                rkmvcc/terminal/nirdesh
+            </div>
+            <div style="color: #4b5563; font-size: 18px; font-weight: 100;">............</div>
+        </div>
+
+        <div class='content'>
+            <div style="color: #6366f1; font-size: 100px;">REGISTER NOW</div>
+            <div style="font-size: 20px; color: #22c55e; margin-bottom: 40px;">NIRDESHIANS REGISTER YOURSELF FOR THE
+                ULTIMATE CODING CHALLENGE</div>
+
+
+            <div class="info">
+                <h2 style="margin-left: 15px; padding-top: 10px;">First Name <swap style="color:#b91c1c">*</swap>
+                </h2>
+                <div class="hidden">
+                    <i>What shall we call you?</i>
+                    <input class="inputs" type="text">
+                </div>
+            </div>
+
+            <div class="info">
+                <h2 style="margin-left: 15px; padding-top: 10px;">Last Name <swap style="color:#b91c1c">*</swap>
+                </h2>
+                <div class="hidden">
+                    <i>What shall we call you?</i>
+                    <input class="inputs" type="text">
+                </div>
+            </div>
+
+            <div class="info">
+                <h2 style="margin-left: 15px; padding-top: 10px;">Email Address<swap style="color:#b91c1c">*</swap>
+                </h2>
+                <div class="hidden">
+                    <i>What shall we reach you?</i>
+                    <input class="inputs" type="text">
+                </div>
+            </div>
+            <div class="info">
+                <h2 style="margin-left: 15px; padding-top: 10px;">Whatsapp Number <swap style="color:#b91c1c">*</swap>
+                </h2>
+                <div class="hidden">
+                    <i>What shall we reach you on Whatsapp?</i>
+                    <input class="inputs" type="text">
+                </div>
+            </div>
+            <div class="info">
+                <h2 style="margin-left: 15px; padding-top: 10px;">College Name <swap style="color:#b91c1c">*</swap>
+                </h2>
+                <div class="hidden">
+                    <i>Which college do you represent?</i>
+                    <input class="inputs" type="text">
+                </div>
+            </div>
+
+            <div class="info">
+                <h2 style="margin-left: 15px; padding-top: 10px;">Year and level <swap style="color:#b91c1c">*</swap>
+                </h2>
+                <div class="hidden">
+                    <i>Which college do you represent?</i>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="inputs" style="cursor: pointer;">
+                            <div>Select Year<img style="margin-left: 280px;" width="15" height="15"
+                                    src="./icons8-dropdown-50.png" alt="expand-arrow--v2" /></div>
+                        </button>
+                        <button class="inputs" style="cursor: pointer;">
+                            <div>Select Level<img style="margin-left: 280px;" width="15" height="15"
+                                    src="./icons8-dropdown-50.png" alt="expand-arrow--v2" /></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <img class="QR" src="bijitUPI.png">
+                <h2 style="margin-left: 15px; padding-top: 10px;">Make Payment (₹50) <swap style="color:#b91c1c">*
+                    </swap>
+                </h2>
+                <i style="font-size: 14px; margin-left: 15px; color:#aa6a21">
+                    <swap style="color :#0d728e;">bijit-fave@idfcbank</swap> or click on QR code to expand and scan
+                </i>
+                <div class="hidden">
+                    <input class="inputs" placeholder="Enter Transaction ID" type="text">
+                </div>
+            </div>
+            <div
+                style="border: 1px solid white; border-radius: 8px; width:70%; padding-top: 15px; padding-bottom: 15px;">
+                <input style="cursor: pointer; margin-left: 15px; margin-right: 10px;" type="checkbox">
+                <swap style="color:#FFFFFF">I have read the <swap class='change'>Nirdeshian's Manual</swap> and will
+                    follow the code of conduct</swap>
+            </div>
+            <div>
+                <button class="submit">
+                    SUBMIT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class='footer'>
+        <div>
+            <div class='down_nir'>
+                <h1 style="font-weight: 500;">
+                    < NIRDESH>
+                </h1>
+                <h5 style="font-weight: 100;"> RKMVCC's Tech Fest</h5>
+            </div>
+        </div>
+        <div style = "margin:25px">
+            <img class="logo" width="100" height="100" src="https://img.icons8.com/ios/100/twitterx--v2.png"
+                alt="twitterx--v2" />
+            <svg class="logo" width="100" height="100" viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMinYMin" class="jam jam-linkedin">
+                <path
+                    d='M19.959 11.719v7.379h-4.278v-6.885c0-1.73-.619-2.91-2.167-2.91-1.182 0-1.886.796-2.195 1.565-.113.275-.142.658-.142 1.043v7.187h-4.28s.058-11.66 0-12.869h4.28v1.824l-.028.042h.028v-.042c.568-.875 1.583-2.126 3.856-2.126 2.815 0 4.926 1.84 4.926 5.792zM2.421.026C.958.026 0 .986 0 2.249c0 1.235.93 2.224 2.365 2.224h.028c1.493 0 2.42-.989 2.42-2.224C4.787.986 3.887.026 2.422.026zM.254 19.098h4.278V6.229H.254v12.869z' />
+            </svg>
+            <svg class="logo" width="100" height="100" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                fill="#000000">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M1 3.5l.5-.5h13l.5.5v9l-.5.5h-13l-.5-.5v-9zm1 1.035V12h12V4.536L8.31 8.9H7.7L2 4.535zM13.03 4H2.97L8 7.869 13.03 4z" />
+            </svg>
+            <?xml version="1.0" encoding="utf-8"?>
+            <svg class="logo" width="100" height="100" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4,2 L20,2 C21.1045695,2 22,2.8954305 22,4 L22,20 C22,21.1045695 21.1045695,22 20,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,4 C2,2.8954305 2.8954305,2 4,2 Z M4,4 L4,20 L20,20 L20,4 L4,4 Z M13,12.0043945 L11.1330566,12.0043945 L11.1330566,10.0043945 L13,10.0043945 L13,9 C13,7.34314575 14.3431458,6 16,6 L17,6 L17,8 L16,8 C15.4477153,8 15,8.44771525 15,9 L15,10.0043945 L16.9824219,10.0043945 L16.9824219,12.0043945 L15,12.0043945 L15,18 L13,18 L13,12.0043945 Z" />
+            </svg>
+        </div>
+    </div>
+    <div style = "margin-left: 20px; margin-right: 20px; border-bottom: 0.5px solid #374151;"></div>
+    <div style = "display: flex; flex-direction: column; align-items: center; color: #444e5d; background-color:#192230e5; padding-top: 40px; padding-bottom: 40px;">
+        <h4>All © Reserved by Ramakrishna Mission Vivekananda Centenary College</h4><br>
+        <h6>Created with ❤️ by <b>Gaurav Kumar</b></h6>
+    </div>
+</body>
+
+</html>
